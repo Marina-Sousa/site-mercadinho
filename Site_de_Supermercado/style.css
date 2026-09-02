@@ -1,0 +1,377 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Em caso de pulo pra outra parte da página, o rolamento é feito de forma suave */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ==============================================
+   CONFIGURAÇÕES GERAIS
+   ============================================== */
+
+:root {
+    --vermelho-claro: #dd4231;
+    --bege: #ff805d;
+    --branco: #FFFFFF;
+    --branco-suave: #ffffff;
+    --cinza-escuro: #334155;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--branco);
+    color: var(--cinza-escuro);
+}
+
+/* ==============================================
+                CABEÇALHO
+   ============================================== */
+
+header {
+    background-color: var(--vermelho-claro);
+    color: var(--branco);
+    padding: 30px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1,
+h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+header p {
+    margin-top: 0;
+    margin-bottom: 25px;
+    /* CRUCIAL: Empurra o menu <nav> para baixo, separando dos textos */
+}
+
+nav {
+    padding: 2px;
+    background-color: var(--vermelho-claro);
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    color: var(--branco-suave);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+nav a:hover {
+    color: black;
+}
+
+/* ==============================================
+   SEÇÃO SOBRE MIM
+   ============================================== */
+
+.sobre {
+    display: flex;
+    /* Centraliza verticalmente */
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 30px;
+    background-color: var(--branco-suave);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    flex-wrap: wrap;
+    /*Garante que fique um embaixo do outro em telas menores*/
+}
+
+/* ==============================================
+   SEÇÃO SOBRE MIM (imagem)
+   ============================================== */
+
+.foto-mercado {
+    flex: 1;
+    min-width: 300px;
+}
+
+.foto-mercado img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ==============================================
+   SEÇÃO SOBRE MIM (Parágrafo)
+   ============================================== */
+
+.Quem-somos {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    /*Empilha o título e o parágrafo */
+    justify-content: center;
+    gap: 15px;
+}
+
+.Quem-somos h2 {
+    color: var(--vermelho-claro);
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.Quem-somos h3 {
+    color: var(--vermelho-claro);
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.Quem-somos p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--cinza-escuro);
+    font-size: 1rem;
+}
+
+/* Botão do Google Maps */
+.btn-mapa {
+    display: inline-flex;
+    /* Ajusta o tamanho exatamente ao conteúdo */
+    align-items: center;
+    /* Centraliza ícone e texto verticalmente */
+    justify-content: center;
+    align-self: flex-start;
+    /* Impede que o botão estique na coluna */
+
+    background-color: var(--vermelho-claro);
+    color: #ffffff;
+
+    padding: 12px 24px;
+    /* Espaçamento interno confortável */
+    border-radius: 50px;
+    /* Bordas 100% arredondadas (igual ao do WhatsApp) */
+
+    text-decoration: none;
+    /* Remove o sublinhado */
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-top: 15px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Efeito ao passar o mouse */
+.btn-mapa:hover {
+    background-color: #b83226;
+    /* Tom levemente mais escuro */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* SEÇÃO DESTAQUES */
+
+.destaques {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.destaques h2 {
+    color: var(--vermelho-claro);
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+}
+
+.cards-grid {
+    display: grid;
+    /* Cria colunas automáticas com tamanho mínimo de 220px */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.card h3 {
+    color: var(--vermelho-claro);
+}
+
+.card {
+    background-color: var(--branco-suave);
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+/* Efeito suave pra cima ao passar o mouse */
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* ==============================================
+   SEÇÃO DE INFORMAÇÕES (Horário + Contato)
+   ============================================== */
+
+/* Container geral que alinha Horário e Contato lado a lado */
+.informacoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    /* Garante responsividade em telas menores */
+}
+
+/* ==============================================
+   SEÇÃO HORÁRIO
+   ============================================== */
+.horario {
+    flex: 1;
+    min-width: 280px;
+    background-color: var(--branco-suave);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.horario h3,
+.horario h2 {
+    color: var(--vermelho-claro);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.horario ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.horario li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+}
+
+.horario li:last-child {
+    border-bottom: none;
+}
+
+/* ==============================================
+   SEÇÃO CONTATO
+   ============================================== */
+.contato {
+    flex: 1;
+    min-width: 280px;
+    background-color: var(--branco-suave);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.contato h3,
+.contato h2 {
+    color: var(--vermelho-claro);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.contato p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/*BOTÃO DO WHATSAPP*/
+
+.btn-whatsapp {
+    display: inline-block;
+    background-color: #25D366;
+    /* Verde WhatsApp */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1eb857;
+    transform: translateY(-2px);
+}
+
+footer {
+    background-color: var(--vermelho-claro);
+    color: var(--branco-suave);
+    display: flex;
+    justify-content: center;
+}
+
+
+/* ==============================================
+   RESPONSIVIDADE (DISPOSITIVOS MÓVEIS)
+   ============================================== */
+
+@media (max-width: 768px) {
+
+    header h1 {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Menu compacto que não corta e mantém o "Início" */
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        /* Permite quebrar em 2 linhas se não couber */
+        justify-content: center;
+        /* Centraliza as opções na tela */
+        gap: 8px 15px;
+        /* Espaçamento pequeno entre os botões */
+        padding: 10px 5px;
+        background-color: #b83226;
+    }
+
+    .menu a {
+        font-size: 0.85rem;
+        /* Tamanho ideal para toque no celular */
+        padding: 6px 10px;
+        white-space: nowrap;
+        /* Impede que a palavra "Destaques" quebre no meio */
+    }
+
+    /* Ajuste de margens laterais pra nada encostar na borda da tela */
+    .Sobre,
+    .destaques,
+    .informacoes {
+        padding: 15px;
+        margin: 15px 10px;
+    }
+
+    /* Garante que os blocos ocupem a largura correta */
+    .foto-mercado,
+    .Quem-somos,
+    .horario,
+    .contato {
+        min-width: 100%;
+    }
+}
